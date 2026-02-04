@@ -49,6 +49,6 @@ xp.Year = xp.Year.astype(int)
 
 xpp = xp.pivot(index='week', columns='Year', values='TOTAL').drop(columns=[2018,2025]).dropna()
 
-fig = xpp.T.plot(backend='plotly', kind='box')
+fig = px.box(xpp.T)
 
 st.plotly_chart(fig)
