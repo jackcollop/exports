@@ -58,4 +58,4 @@ st.plotly_chart(fig)
 upland['Year'] = upland['Year'].astype(int)
 
 xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='accumulatedExports')
-st.dataframe(xp)
+st.dataframe(xp[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']])
