@@ -55,5 +55,7 @@ fig = px.box(xpp.T)
 st.caption('Pace of weekly export shipments')
 st.plotly_chart(fig)
 
+upland['Year'] = upland['Year'].astype(int)
+
 xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='accumulatedExports')
 st.dataframe(xp)
