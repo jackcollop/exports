@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import os
 import numpy as np
+import plotly.express as px
 
 key = os.environ['API']
 
