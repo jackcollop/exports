@@ -50,6 +50,6 @@ xp.Year = xp.Year.astype(int)
 
 xpp = xp.pivot(index='week', columns='Year', values='TOTAL').drop(columns=[2025]).dropna()
 
-fig = px.box(xpp.T)
+fig = px.box(xpp.T, color='Year')
 
 st.plotly_chart(fig)
