@@ -3,7 +3,6 @@ import streamlit as st
 import os
 import numpy as np
 import plotly.express as px
-st.set_page_config(layout="wide") 
 
 key = os.environ['API']
 
