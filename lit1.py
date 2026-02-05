@@ -101,4 +101,6 @@ xp.Year = xp.Year.astype(int)
 #%%
 xpp = xp.pivot(index='week', columns='Year', values='TOTAL')
 
-st.line_chart(xpp)
+fig2 = st.area(xpp)
+st.plotly_chart(fig2)
+
