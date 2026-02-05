@@ -77,7 +77,7 @@ xp.reset_index(inplace=True)
 xp['week'] = weeks.to_numpy()
 st.dataframe(xp.reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']].sort_index(ascending=False), width='content')
 
-xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='currentMYNetSales')
+xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='currentMYNetSales', width='stretch')
 xp['TOTAL'] = xp.sum(axis=1)
 #%%
 weeks = pd.Series(xp.TOTAL.reset_index().groupby('Year').cumcount() + 1).astype(int)
