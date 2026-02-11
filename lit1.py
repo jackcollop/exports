@@ -98,12 +98,14 @@ fig2 = px.line(xpp[[2021,2022,2023,2024,2025]])
 fig2['data'][-1]['line']['width']=5
 st.plotly_chart(fig2)
 
+###
+
 fig3 = px.line(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','BANGLADESH','THAILAND']].sort_index(ascending=False).xs(2025))
 
 st.caption('2025 Accumulated Exports by Destination')
 st.plotly_chart(fig3)
 
-xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='currentMYNetSales')
+xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='outstandingSales')
 
 xp['TOTAL'] = xp.sum(axis=1)
 #%%
@@ -117,8 +119,9 @@ xp.Year = xp.Year.astype(int)
 #%%
 xpp = xp.pivot(index='week', columns='Year', values='TOTAL')
 
-fig2 = px.line(xpp[[2021,2022,2023,2024,2025]])
-fig2['data'][-1]['line']['width']=5
-st.plotly_chart(fig2)
+###
 
-fig3 = px.line(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','BANGLADESH','THAILAND']].sort_index(ascending=False).xs(2025))
+fig4 = px.line(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','BANGLADESH','THAILAND']].sort_index(ascending=False).xs(2025))
+
+st.caption('2025 Outstanding Sales by Destination')
+st.plotly_chart(fig4)
