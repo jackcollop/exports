@@ -98,3 +98,4 @@ fig2 = px.line(xpp[[2021,2022,2023,2024,2025]])
 fig2['data'][-1]['line']['width']=5
 st.plotly_chart(fig2)
 
+st.line_chart(xp.xs(2025))
