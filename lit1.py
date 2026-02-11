@@ -98,4 +98,4 @@ fig2 = px.line(xpp[[2021,2022,2023,2024,2025]])
 fig2['data'][-1]['line']['width']=5
 st.plotly_chart(fig2)
 
-st.line_chart(xp.xs(2025))
+st.line_chart(xp.reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']].sort_index(ascending=False).xs(2025))
