@@ -121,7 +121,7 @@ xpp = xp.pivot(index='week', columns='Year', values='TOTAL')
 
 ###
 
-fig4 = px.line(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','BANGLADESH','THAILAND']].sort_index(ascending=False).xs(2025).pct_change().dropna())
+fig4 = px.line(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','BANGLADESH','THAILAND']].sort_index(ascending=False).xs(2025).dropna())
 
 st.caption('2025 Outstanding Sales by Destination')
 st.plotly_chart(fig4)
