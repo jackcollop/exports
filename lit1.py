@@ -119,7 +119,7 @@ xpp = xp.pivot(index='week', columns='Year', values='TOTAL')
 fig2 = px.line(xpp[[2021,2022,2023,2024,2025]])
 fig2['data'][-1]['line']['width']=5
 
-st.caption('Total upland commitments by CMY')
+st.caption('Total upland shipments by CMY')
 st.plotly_chart(fig2)
 
 ###
