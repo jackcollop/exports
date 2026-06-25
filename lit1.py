@@ -89,7 +89,7 @@ xp1.reset_index(inplace=True)
 #%%
 xp1['week'] = weeks.to_numpy()
 st.caption('Weekly upland shipments')
-st.dataframe(xp1.reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']].sort_index(ascending=False), width='content')
+st.dataframe(xp1.reset_index().set_index(['Year','week'])[['TOTAL']].sort_index(ascending=False), width='content')
 
 xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='accumulatedExports')
 xp['TOTAL'] = xp.sum(axis=1)
