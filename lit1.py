@@ -88,7 +88,7 @@ weeks = pd.Series(xp1.TOTAL.reset_index().groupby('Year').cumcount() + 1).astype
 xp1.reset_index(inplace=True)
 #%%
 xp1['week'] = weeks.to_numpy()
-st.caption('Weekly upland shipments')
+st.caption('Weekly pima shipments')
 st.dataframe(xp1.reset_index().set_index(['Year','week'])[['TOTAL']].sort_index(ascending=False), width='content')
 
 xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='accumulatedExports')
