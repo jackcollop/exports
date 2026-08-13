@@ -15,14 +15,14 @@ zz = z.set_index('countryCode')['countryDescription'].to_dict() #creates diction
 zz[5700] = 'CHINA'
 zz[5800] = 'KOREA'
 
-year = 2026
+year = 2027
 temp = pd.read_json(
         f'https://api.fas.usda.gov/api/esr/exports/commodityCode/1404/allCountries/marketYear/{year}?api_key={key}')
 temp['Year'] = str(year - 1)
 #%%
 upland = pd.concat([temp, pd.read_csv('upland.csv')])
 
-year = 2026
+year = 2027
 temp = pd.read_json(
     f'https://api.fas.usda.gov/api/esr/exports/commodityCode/1301/allCountries/marketYear/{year}?api_key={key}')
 temp['Year'] = str(year - 1)
