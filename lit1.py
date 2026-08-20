@@ -124,7 +124,7 @@ def country_piv(attr):
 #%%
         xp['week'] = weeks.to_numpy()
         st.caption(attr)
-        max_week = xp[xp.Year.max()].week.max()
+        max_week = xp[xp.Year == xp.Year.max()].week.max()
         return st.dataframe(xp[xp.week == max_week].reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']].sort_index(ascending=False), width='content')
 
 
