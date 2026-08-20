@@ -115,7 +115,7 @@ st.dataframe(xp.reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHI
 
 
 def country_piv(attr):
-        xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='attr')
+        xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values=attr)
         xp['TOTAL'] = xp.sum(axis=1)
 #%%
         weeks = pd.Series(xp.TOTAL.reset_index().groupby('Year').cumcount() + 1).astype(int)
