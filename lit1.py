@@ -114,6 +114,29 @@ st.caption('Outstanding CMY sales')
 st.dataframe(xp.reset_index().set_index(['Year','week'])[['TOTAL','VIETNAM','CHINA','TURKEY','INDONESIA','MEXICO','INDIA','PAKISTAN','KOREA','BANGLADESH','THAILAND','TAIWAN']].sort_index(ascending=False), width='content')
 
 
+def piv(attr):
+        xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values=attr)
+
+        xp['TOTAL'] = xp.sum(axis=1)
+#%%
+        weeks = pd.Series(xp.TOTAL.reset_index().groupby('Year').cumcount() + 1).astype(int)
+#%%
+        xp.reset_index(inplace=True)
+#%%
+        xp['week'] = weeks.to_numpy()
+#%%
+        xp.Year = xp.Year.astype(int)
+#%%
+        xpp = xp.pivot(index='week', columns='Year', values='TOTAL')
+
+        fig2 = px.line(xpp[[2021,2022,2023,2024,2025]], title=attr)
+        fig2['data'][-1]['line']['width']=5
+
+        st.plotly_chart(fig2)
+        
+
+
+
 xp = upland.pivot(index=['Year','weekEndingDate'], columns='countryName', values='accumulatedExports')
 
 xp['TOTAL'] = xp.sum(axis=1)
@@ -161,3 +184,6 @@ fig4 = px.area(xp.reset_index().set_index(['Year','week'])[['VIETNAM','CHINA','T
 
 st.caption('2025 Outstanding Sales by Destination')
 st.plotly_chart(fig4)
+
+
+piv('accumulatedExports')
